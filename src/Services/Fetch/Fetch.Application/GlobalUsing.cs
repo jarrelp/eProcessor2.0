@@ -1,0 +1,11 @@
+﻿global using Ecmanage.eProcessor.Services.Fetch.Fetch.Domain.Models;
+global using Ecmanage.eProcessor.Services.Fetch.Fetch.Domain.ValueObjects;
+global using Ecmanage.eProcessor.BuildingBlocks.BuildingBlocks.CQRS;
+global using Ecmanage.eProcessor.Services.Fetch.Fetch.Application.Data;
+global using Ecmanage.eProcessor.Services.Fetch.Fetch.Application.Dtos;
+global using Ecmanage.eProcessor.Services.Fetch.Fetch.Application.Exceptions;
+global using MediatR;
+global using Microsoft.Extensions.Logging;
+global using Ecmanage.eProcessor.Services.Fetch.Fetch.Domain.Events;
+global using Microsoft.EntityFrameworkCore;
+global using Ecmanage.eProcessor.Services.Fetch.Fetch.Application.Extensions;

@@ -1,0 +1,27 @@
+version: '3.4'
+
+services:
+  fetchdb:
+    container_name: fetchdb
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Pass@word
+    restart: always
+    ports:
+      - '1433:1433'
+
+  fetch.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8081
+      - ConnectionStrings__Database=Server=fetchdb;Database=FetchDb;User Id=sa;Password=Pass@word;Encrypt=False;TrustServerCertificate=True
+      - FeatureManagement__OrderFullfilment=false
+    depends_on:
+      - fetchdb
+    ports:
+      - '6003:8080'
+      - '6063:8081'
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro

@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  fetchdb:
+    image: mcr.microsoft.com/mssql/server
+
+  fetch.api:
+    image: ${DOCKER_REGISTRY-}fetchapi
+    build:
+      context: .
+      dockerfile: src/Services/Fetch/Fetch.API/Dockerfile
